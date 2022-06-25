@@ -17,9 +17,8 @@ public class Pessoa {
 	
 	private String categoria;
 	
-	private String nivel;
+	private String ranking;
 	
-	private String poder;
 
 	public Long getCodigo() {
 		return codigo;
@@ -53,20 +52,12 @@ public class Pessoa {
 		this.categoria = categoria;
 	}
 
-	public String getNivel() {
-		return nivel;
+	public String getRanking() {
+		return ranking;
 	}
 
-	public void setNivel(String nivel) {
-		this.nivel = nivel;
-	}
-
-	public String getPoder() {
-		return poder;
-	}
-
-	public void setPoder(String poder) {
-		this.poder = poder;
+	public void setRanking(String ranking) {
+		this.ranking = ranking;
 	}
 	
 

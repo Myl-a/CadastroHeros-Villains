@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th"http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+<link rel="stylesheet" type=""text/css"" href="/css/bootstrap.min.css"/>
+<title>CadastroHerois&Viloes</title>
+</head>
+
+<body>
+
+<table class ="table">
+<thead>
+<tr>
+<th scope="col"><Codigo></th>
+<th scope="col"><Nome></th>
+<th scope="col"><Classe></th>
+<th scope="col"><Categoria></th>
+<th scope="col"><Nivel></th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr th:each = "pessoa: ${listaPessoas}">
+<td th:text = "${pessoa.codigo}"></td>
+<td th:text = "${pessoa.nome}"></td>
+<td th:text = "${pessoa.classe}"></td>
+<td th:text = "${pessoa.categoria}"></td>
+<td th:text = "${pessoa.ranking}"></td>
+<td><a th:href="@{/herovillain/excluir/{codigo}(codigo = ${pessoa.codigo})}"> <button type="button" class="btn btn-danger">Excluir</button></a></td>
+</tr>
+
+</tbody>
+</table>
+<script src"/js/bootstrap.min.js"> </script>
+</body>
+
+</html>
