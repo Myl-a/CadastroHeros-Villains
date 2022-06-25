@@ -10,24 +10,38 @@
 </head>
 
 <body>
-
-<h1> <font color="#000099">Cadastro de Herois</font><h1>
+<center>
+<h1> <font color="#000099">Cadastro de Herois e Vilões</font><h1>
+<h4> <font color="#000099">Cadastro de Herois,Vilões e Monstros</font><h4>
 
 <font color="#864086">
 
 <form method= "post" action="/herovillain/salvar" th:object="${pessoa}">
 <input type="hidden" th:field="*{codigo}" />
+<center>
+<style>
+    body {
+        background-color: #ABBAEA;
+    }
+    div {
+        height: 200px;
+        margin: 20px;
+        border: 5px solid;
+        background-color: #FBD603;
+    }
+</style>
 
 Nome: <input type="text" th:field="*{nome}"/><br>
 Classe: <input type="text" th:field="*{classe}"/><br>
 Ranking: <input type="text" th:field="*{ranking}"/><br>
 Categoria: <input type="text" th:field="*{categoria}"/><br>
-Data de Nascimento: <input type="text" th:field="*{dataNascimento}"/>
+Data: <input type="text" th:field="*{dataNascimento}"/>
 <br>
 
 <br>
 <input type="submit" value="Cadastrar" />
 </form>
+
 </body>
 
 </html>
