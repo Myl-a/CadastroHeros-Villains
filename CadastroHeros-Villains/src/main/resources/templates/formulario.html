@@ -15,11 +15,13 @@
 
 <font color="#864086">
 
-<form method= "get" action="/herovillain/salvar">
-Nome: <input type="text" name="nome"/><br>
-Classe: <input type="text" name="classe"/><br>
-Ranking: <input type="text" name="ranking"/><br>
-Categoria: <input type="text" name="categoria"/>
+<form method= "post" action="/herovillain/salvar" th:object="${pessoa}">
+<input type="hidden" th:field="*{codigo}" />
+
+Nome: <input type="text" th:field="*{nome}"/><br>
+Classe: <input type="text" th:field="*{classe}"/><br>
+Ranking: <input type="text" th:field="*{ranking}"/><br>
+Categoria: <input type="text" th:field="*{categoria}"/>
 <br>
 
 <br>

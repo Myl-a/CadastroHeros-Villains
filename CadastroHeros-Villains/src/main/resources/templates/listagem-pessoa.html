@@ -18,7 +18,7 @@
 <th scope="col"><Nome></th>
 <th scope="col"><Classe></th>
 <th scope="col"><Categoria></th>
-<th scope="col"><Nivel></th>
+<th scope="col"><Ranking></th>
 </tr>
 
 </thead>
@@ -32,6 +32,7 @@
 <td th:text = "${pessoa.categoria}"></td>
 <td th:text = "${pessoa.ranking}"></td>
 <td><a th:href="@{/herovillain/excluir/{codigo}(codigo = ${pessoa.codigo})}"> <button type="button" class="btn btn-danger">Excluir</button></a></td>
+<td> <a class="btn btn-primary" th:href="@{/herovillain/atualizar/{codigo}(codigo = ${pessoa.codigo})}"> Atualizar </a></td>
 </tr>
 
 </tbody>

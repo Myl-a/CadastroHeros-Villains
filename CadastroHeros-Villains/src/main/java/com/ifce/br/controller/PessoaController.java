@@ -1,10 +1,13 @@
 package com.ifce.br.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifce.br.model.Pessoa;
@@ -19,13 +22,16 @@ public class PessoaController {
 		return "ola-mundo";
 	}
 	@GetMapping("herovillain/formulario")
-	public String formulario() {
-		return "formulario";
+	public ModelAndView formulario() {
+		ModelAndView mv = new ModelAndView("formulario");
+		mv.addObject("pessoa", new Pessoa());
+		return mv;
 	}
-	@GetMapping("herovillain/salvar")
-	public String salvar(Pessoa pessoa) {
+	@RequestMapping("/herovillain/salvar")
+	public ModelAndView salvar(Pessoa pessoa) {
 		pessoaService.cadastrarPessoa(pessoa);
-		return "sucesso";
+		ModelAndView mv = new ModelAndView("redirect:herovillain/listar");
+		return mv;
 	}
 	@GetMapping("herovillain/listar")
 	public ModelAndView listarPessoa() {
@@ -41,6 +47,13 @@ public class PessoaController {
 		pessoaService.excluirPessoaPorId(codigo);
 		
 		ModelAndView mv  = new ModelAndView("redirect:herovillain/listar");
+		return mv;
+	}
+	@RequestMapping("/herovillain/atualizar/{codigo}")
+	public ModelAndView atualizarPessoaPorId(@PathVariable Long codigo) {
+		Optional<Pessoa> pessoa = pessoaService.buscarPorId(codigo);
+		ModelAndView mv = new ModelAndView("formulario");
+		mv.addObject("pessoa", pessoa);
 		return mv;
 	}
 }
